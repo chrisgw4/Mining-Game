@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://ciyntjywu2sc3"]
+
+[ext_resource type="PackedScene" uid="uid://dpmdp2mbe0k67" path="res://scenes/weapons/weapon.tscn" id="1_scupc"]
+[ext_resource type="Texture2D" uid="uid://bnd448ax2u8vb" path="res://sprites/playerSprites_ [version 1.0]/sword_ [wood].png" id="2_k1unw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sw0nm"]
+atlas = ExtResource("2_k1unw")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_betfy"]
+atlas = ExtResource("2_k1unw")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6us45"]
+atlas = ExtResource("2_k1unw")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qt3db"]
+atlas = ExtResource("2_k1unw")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q321j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sw0nm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_betfy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6us45")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qt3db")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Wood Sword" instance=ExtResource("1_scupc")]
+
+[node name="AnimatedSprite2D" parent="Pivot" index="0"]
+sprite_frames = SubResource("SpriteFrames_q321j")
+
+[node name="Hitbox" parent="Pivot/AnimatedSprite2D" index="0"]
+damage = 1.0

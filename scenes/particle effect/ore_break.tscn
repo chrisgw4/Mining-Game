@@ -1,0 +1,106 @@
+[gd_scene load_steps=28 format=3 uid="uid://b7yww42kjvml5"]
+
+[ext_resource type="Texture2D" uid="uid://xngem0jwwohc" path="res://sprites/particles/Smoke/Smoke1.png" id="1_wvv81"]
+[ext_resource type="Texture2D" uid="uid://c3yascu6an3hw" path="res://sprites/particles/Smoke/Smoke2.png" id="2_eu10j"]
+[ext_resource type="Texture2D" uid="uid://bmb04o5o13bt8" path="res://sprites/particles/Smoke/Smoke11.png" id="3_jmgp7"]
+[ext_resource type="Texture2D" uid="uid://cjuslecf3u1e0" path="res://sprites/particles/Smoke/Smoke12.png" id="4_om7r5"]
+[ext_resource type="Texture2D" uid="uid://ckd2avqe8o4h0" path="res://sprites/particles/Smoke/Smoke13.png" id="5_p4i2t"]
+[ext_resource type="Texture2D" uid="uid://dtaonc3ve0pir" path="res://sprites/particles/Smoke/Smoke14.png" id="6_oi8ir"]
+[ext_resource type="Texture2D" uid="uid://ogh12u4dem55" path="res://sprites/particles/Smoke/Smoke15.png" id="7_ni6v7"]
+[ext_resource type="Texture2D" uid="uid://11kxdhllmhdn" path="res://sprites/particles/Smoke/Smoke16.png" id="8_jc0nt"]
+[ext_resource type="Texture2D" uid="uid://dwdenm6y0v4jr" path="res://sprites/particles/Smoke/Smoke17.png" id="9_ifpwo"]
+[ext_resource type="Texture2D" uid="uid://cqgrldlaje7hl" path="res://sprites/particles/Smoke/Smoke18.png" id="10_yc3pg"]
+[ext_resource type="Texture2D" uid="uid://dvnryqv86xtdp" path="res://sprites/particles/Smoke/Smoke19.png" id="11_s7vvy"]
+[ext_resource type="Texture2D" uid="uid://djeqe6t0wslcr" path="res://sprites/particles/Smoke/Smoke3.png" id="12_y3pdx"]
+[ext_resource type="Texture2D" uid="uid://bu6vqjcfgv075" path="res://sprites/particles/Smoke/Smoke4.png" id="13_2fftg"]
+[ext_resource type="Texture2D" uid="uid://cf3hqavd174aq" path="res://sprites/particles/Smoke/Smoke5.png" id="14_umbeh"]
+[ext_resource type="Texture2D" uid="uid://ckkx2w6048tu" path="res://sprites/particles/Smoke/Smoke6.png" id="15_7ayxh"]
+[ext_resource type="Texture2D" uid="uid://mjm25av5gi3n" path="res://sprites/particles/Smoke/Smoke7.png" id="16_3t34i"]
+[ext_resource type="Texture2D" uid="uid://japcqnghpcxo" path="res://sprites/particles/Smoke/Smoke8.png" id="17_d3dr0"]
+[ext_resource type="Texture2D" uid="uid://c1lmb1j616u5e" path="res://sprites/particles/Smoke/Smoke9.png" id="18_wng36"]
+[ext_resource type="Texture2D" uid="uid://dd4ysgh1k4q8n" path="res://sprites/particles/Smoke/Smoke10.png" id="19_a2f0p"]
+
+[sub_resource type="Curve" id="Curve_5w2an"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.514286, 0.945055), 0.0, 0.0, 0, 0, Vector2(0.811429, 0.813187), 0.0, 0.0, 0, 0, Vector2(1, 0.0879121), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_dv8on"]
+curve = SubResource("Curve_5w2an")
+
+[sub_resource type="Curve" id="Curve_73705"]
+_data = [Vector2(1e-05, 0.263736), 0.0, 0.0, 0, 0, Vector2(0.948571, 0.648352), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_3mimk"]
+curve = SubResource("Curve_73705")
+
+[sub_resource type="Curve" id="Curve_nuitf"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.691429, 0.945055), 0.0, 0.0, 0, 0, Vector2(1, 0.417582), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_ou27u"]
+curve = SubResource("Curve_nuitf")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_12d8t"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(1, 1, 0)
+emission_shape = 1
+emission_sphere_radius = 1.0
+radial_velocity_max = 40.0
+radial_velocity_curve = SubResource("CurveTexture_3mimk")
+gravity = Vector3(0, -40, 0)
+scale_min = 0.25
+scale_max = 0.25
+scale_curve = SubResource("CurveTexture_ou27u")
+alpha_curve = SubResource("CurveTexture_dv8on")
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_nfc5g"]
+frames = 19
+speed_scale = 18.0
+frame_0/texture = ExtResource("1_wvv81")
+frame_1/texture = ExtResource("2_eu10j")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("12_y3pdx")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("13_2fftg")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("14_umbeh")
+frame_4/duration = 1.0
+frame_5/texture = ExtResource("15_7ayxh")
+frame_5/duration = 1.0
+frame_6/texture = ExtResource("16_3t34i")
+frame_6/duration = 1.0
+frame_7/texture = ExtResource("17_d3dr0")
+frame_7/duration = 1.0
+frame_8/texture = ExtResource("18_wng36")
+frame_8/duration = 1.0
+frame_9/texture = ExtResource("19_a2f0p")
+frame_9/duration = 1.0
+frame_10/texture = ExtResource("3_jmgp7")
+frame_10/duration = 1.0
+frame_11/texture = ExtResource("4_om7r5")
+frame_11/duration = 1.0
+frame_12/texture = ExtResource("5_p4i2t")
+frame_12/duration = 1.0
+frame_13/texture = ExtResource("6_oi8ir")
+frame_13/duration = 1.0
+frame_14/texture = ExtResource("7_ni6v7")
+frame_14/duration = 1.0
+frame_15/texture = ExtResource("8_jc0nt")
+frame_15/duration = 1.0
+frame_16/texture = ExtResource("9_ifpwo")
+frame_16/duration = 1.0
+frame_17/texture = ExtResource("10_yc3pg")
+frame_17/duration = 1.0
+frame_18/texture = ExtResource("11_s7vvy")
+frame_18/duration = 1.0
+
+[node name="Ore Break" type="GPUParticles2D"]
+texture_filter = 1
+emitting = false
+amount = 12
+process_material = SubResource("ParticleProcessMaterial_12d8t")
+texture = SubResource("AnimatedTexture_nfc5g")
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0

@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://mk1w61ufu0bh"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hnkbw"]
+particle_flag_disable_z = true
+radial_velocity_min = 25.0
+radial_velocity_max = 80.0
+gravity = Vector3(0, 98, 0)
+scale_min = 2.0
+scale_max = 2.0
+color = Color(0.823529, 0.823529, 0.823529, 1)
+
+[node name="OreBreak" type="GPUParticles2D"]
+emitting = false
+amount = 64
+process_material = SubResource("ParticleProcessMaterial_hnkbw")
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 120

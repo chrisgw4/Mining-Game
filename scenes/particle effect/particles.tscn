@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dc8ttipdgf2v7"]
+
+[ext_resource type="SpriteFrames" uid="uid://civusp6vylay" path="res://scenes/particle effect/particles.tres" id="1_o5ok5"]
+
+[node name="Particles" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(5.917, 7.1, 7.1, 1)
+texture_filter = 1
+sprite_frames = ExtResource("1_o5ok5")
+frame_progress = 0.75633
