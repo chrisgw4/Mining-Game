@@ -1,11 +1,12 @@
 extends Node2D
 
 
-@onready var tile_map:TileMap = $TileMap
+@onready var tile_map:TileMap = $SceneHolder1/TileMap
 
 @onready var ore:PackedScene = preload("res://scenes/ores/stone.tscn")
-@onready var rock_holder:Node2D = $Ores
 @onready var shop_entrance:Node2D = $ShopEntrance
+
+@onready var scene_holder1:Node = $SceneHolder1
 
 var shop:Shop
 
@@ -27,10 +28,10 @@ func _ready():
 			#print(current_tile)
 			
 			if randi_range(0,100) < 30:
-				if not tile_map.get_cell_tile_data(1, current_tile) and not tile_map.get_cell_tile_data(2, current_tile) and get_node("Player").global_position.distance_to(tile_map.to_global(tile_map.map_to_local(current_tile))) > 10:
+				if not tile_map.get_cell_tile_data(1, current_tile) and not tile_map.get_cell_tile_data(2, current_tile) and get_node("SceneHolder1/Player").global_position.distance_to(tile_map.to_global(tile_map.map_to_local(current_tile))) > 10:
 					var temp = ore.instantiate()
 					temp.global_position = tile_map.to_global(tile_map.map_to_local(current_tile))
-					rock_holder.add_child(temp)
+					scene_holder1.add_child(temp)
 			
 			current_tile.x += 1
 		
@@ -49,9 +50,11 @@ func _on_area_2d_area_entered(area):
 	
 
 func _exit_shop(body) -> void:
-	call_deferred("add_child", tile_map)
-	call_deferred("add_child", rock_holder)
-	call_deferred("add_child", shop_entrance)
+	#call_deferred("add_child", tile_map)
+	#call_deferred("add_child", rock_holder)
+	#call_deferred("add_child", shop_entrance)
+	body.reparent(scene_holder1)
+	call_deferred("add_child", scene_holder1)
 	call_deferred("remove_child", shop)
 	shop.disconnect("exit_shop", _exit_shop)
 	body.global_position = get_node("SpawnPos").global_position
@@ -60,9 +63,11 @@ func _exit_shop(body) -> void:
 
 
 func _on_area_2d_body_entered(body):
-	call_deferred("remove_child", rock_holder)
-	call_deferred("remove_child", tile_map)
-	call_deferred("remove_child", shop_entrance)
+	#call_deferred("remove_child", rock_holder)
+	#call_deferred("remove_child", tile_map)
+	#call_deferred("remove_child", shop_entrance)
+	body.reparent(shop)
+	call_deferred("remove_child", scene_holder1)
 	shop_entrance.get_node("Area2D/CollisionShape2D").set_deferred("disabled", true) 
 	call_deferred("add_child", shop)
 	shop.connect("exit_shop", _exit_shop)

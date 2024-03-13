@@ -201,7 +201,7 @@ radius = 6.0
 height = 18.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nc6s8"]
-radius = 6.0
+radius = 4.0
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
@@ -209,6 +209,7 @@ script = ExtResource("1_gp5gy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+position = Vector2(0, -6)
 sprite_frames = SubResource("SpriteFrames_p1pxj")
 animation = &"walk"
 
@@ -225,6 +226,7 @@ script = ExtResource("4_vqryp")
 parent = NodePath("..")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -6)
 zoom = Vector2(1.75, 1.75)
 limit_left = -752
 limit_top = -448
@@ -238,6 +240,7 @@ drag_right_margin = 0.1
 drag_bottom_margin = 0.1
 
 [node name="Hurtbox" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("5_pk54p")]
+position = Vector2(0, -6)
 collision_layer = 2
 collision_mask = 4
 health_component = NodePath("../HealthComponent")
@@ -248,14 +251,16 @@ shape = SubResource("CapsuleShape2D_6aycm")
 debug_color = Color(0.772549, 0.435294, 0.254902, 0.419608)
 
 [node name="HealthComponent" parent="." instance=ExtResource("6_roaqn")]
+position = Vector2(0, -6)
 max_health = 4.0
 
 [node name="WoodSword" parent="." instance=ExtResource("7_k6huj")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 5)
+position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_nc6s8")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, -6)
 energy = 0.2
 texture = ExtResource("8_e44os")

@@ -1,9 +1,10 @@
-extends Node2D
-class_name BuffItem
+extends Node
+class_name StatComponent
 
+@export_enum("Speed", "Damage") var stat_type:int
 
-@export var shop_component:ShopComponent
-@export var stats:StatComponent
+@export var multiplier:float
+@export var added:float
 
 
 

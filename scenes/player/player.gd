@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+class_name Player
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
@@ -15,6 +15,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
 var damage_stat_multiplier:float = 1.0
+var damage_stat_added:int = 0
 var gold:float = 0.0
 
 
@@ -49,6 +50,20 @@ func get_input():
 	
 	velocity_component.move(self)
 	
+
+func pick_up_item(item) -> void:
+	print(item)
+	print(item.stats.stat_type)
+	
+	match item.stats.stat_type:
+		0: # Speed
+			pass
+			
+		1: # Damage
+			damage_stat_multiplier *= item.stats.multiplier
+			damage_stat_added += item.stats.added
+			$WoodSword.update_damage(damage_stat_added, damage_stat_multiplier)
+
 
 func _physics_process(delta):
 	if velocity.x < 0:

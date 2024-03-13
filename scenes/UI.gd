@@ -3,7 +3,7 @@ extends CanvasLayer
 
 
 @onready var label:RichTextLabel = $RichTextLabel
-@export var player:CharacterBody2D
+@export var player:Player
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,7 +14,7 @@ func _ready():
 func _process(delta):
 	label.text = "       " + str(player.gold)
 	label.text += "\n"
-	label.text += "Damage Multiplier: " + str(player.damage_stat_multiplier)
+	label.text += "Damage: " + str(player.damage_stat_multiplier * (player.get_node("WoodSword").hitbox.damage))
 	
 	
 	

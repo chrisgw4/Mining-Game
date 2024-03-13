@@ -78,6 +78,33 @@ animations = [{
 "speed": 15.0
 }]
 
+[sub_resource type="Animation" id="Animation_ilvlm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_1uswj"]
 resource_name = "coin"
 length = 0.9
@@ -107,33 +134,6 @@ tracks/1/keys = {
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
 }
 
-[sub_resource type="Animation" id="Animation_ilvlm"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"default"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lmkhy"]
 _data = {
 "RESET": SubResource("Animation_ilvlm"),
@@ -149,9 +149,15 @@ size = Vector2(40, 33)
 y_sort_enabled = true
 script = ExtResource("1_soq34")
 
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(717, 461)
+
+[node name="Node2D2" type="Node2D" parent="."]
+position = Vector2(-735, -428)
+
 [node name="UI" type="CanvasLayer" parent="." node_paths=PackedStringArray("player")]
 script = ExtResource("1_yg2x4")
-player = NodePath("../Player")
+player = NodePath("../SceneHolder1/Player")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="UI"]
 offset_right = 385.0
@@ -172,6 +178,9 @@ libraries = {
 [node name="SpawnPos" type="Node2D" parent="."]
 position = Vector2(-9, 32)
 
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.392157, 0.392157, 0.392157, 1)
+
 [node name="ShopEntrance" type="Node2D" parent="."]
 
 [node name="Area2D" type="Area2D" parent="ShopEntrance"]
@@ -182,7 +191,10 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ShopEntrance/Area2D"]
 shape = SubResource("RectangleShape2D_1puck")
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="SceneHolder1" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="TileMap" type="TileMap" parent="SceneHolder1"]
 z_as_relative = false
 texture_filter = 1
 tile_set = ExtResource("3_qommg")
@@ -194,34 +206,23 @@ layer_1/tile_data = PackedInt32Array(-65540, 131073, 15, -65539, 131073, 15, -65
 layer_2/name = "Walls"
 layer_2/tile_data = PackedInt32Array(-65538, 458755, 4, -2, 458755, 5, 65534, 458755, 6, -65537, 524291, 4, -1, 524291, 5, 65535, 524291, 6, -131072, 589827, 4, -65536, 589827, 5, 0, 589827, 6, -65535, 131073, 4, 1, 131073, 5, -65534, 131073, 4, 2, 131073, 5, -262142, 131073, 4, -196606, 131073, 5, -262143, 131073, 4, -196607, 131073, 5, -262144, 131073, 4, -196608, 131073, 5, -196609, 131073, 4, -131073, 131073, 5, -196610, 131073, 4, -131074, 131073, 5, -196611, 131073, 4, -131075, 131073, 5, -196612, 131073, 4, -131076, 131073, 5, -65533, 262145, 6, 3, 262145, 7, -196605, 262145, 2, -262141, 262145, 1, -131069, 262145, 3, -65541, 262145, 3, -131077, 65537, 2, -196613, 65537, 1, -5, 65537, 6, 65531, 65537, 7, 65532, 131073, 5, 65533, 131073, 5, -4, 131073, 4, -3, 131073, 4)
 
-[node name="Player" parent="." instance=ExtResource("1_7lba3")]
+[node name="Player" parent="SceneHolder1" instance=ExtResource("1_7lba3")]
 position = Vector2(-24, 50)
 
-[node name="Hitbox" parent="." instance=ExtResource("2_2mf6j")]
+[node name="Hitbox" parent="SceneHolder1" instance=ExtResource("2_2mf6j")]
 position = Vector2(77, 0)
 collision_layer = 4
 collision_mask = 2
 damage = 1.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SceneHolder1/Hitbox"]
 position = Vector2(10, 6.5)
 shape = SubResource("RectangleShape2D_sroh0")
 disabled = true
 
-[node name="Node2D" type="Node2D" parent="."]
-position = Vector2(717, 461)
-
-[node name="Node2D2" type="Node2D" parent="."]
-position = Vector2(-735, -428)
-
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="SceneHolder1"]
 enabled = false
 zoom = Vector2(0.28, 0.28)
-
-[node name="Ores" type="Node2D" parent="."]
-
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.392157, 0.392157, 0.392157, 1)
 
 [connection signal="area_entered" from="ShopEntrance/Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="ShopEntrance/Area2D" to="." method="_on_area_2d_body_entered"]

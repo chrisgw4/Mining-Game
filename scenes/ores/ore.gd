@@ -6,7 +6,7 @@ extends StaticBody2D
 var particle = preload("res://scenes/particle effect/ore_break2.tscn")
 
 @export var value:float
-@onready var player = get_tree().current_scene.get_node("Player")
+@onready var player = get_tree().current_scene.get_node("SceneHolder1/Player")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

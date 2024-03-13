@@ -39,10 +39,11 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Wood Sword" instance=ExtResource("1_scupc")]
+[node name="Wood Sword" node_paths=PackedStringArray("hitbox") instance=ExtResource("1_scupc")]
+hitbox = NodePath("Pivot/AnimatedSprite2D/Hitbox")
 
 [node name="AnimatedSprite2D" parent="Pivot" index="0"]
 sprite_frames = SubResource("SpriteFrames_q321j")
 
 [node name="Hitbox" parent="Pivot/AnimatedSprite2D" index="0"]
-damage = 1.0
+base_damage = 1.0

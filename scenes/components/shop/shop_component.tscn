@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bly6855hdhqjx"]
+
+[ext_resource type="Script" path="res://scenes/components/shop/shop_component.gd" id="1_5b52h"]
+[ext_resource type="PackedScene" uid="uid://bbtgciolax7xq" path="res://scenes/components/shop/shop_interaction_component.tscn" id="2_2xqv8"]
+
+[node name="ShopComponent" type="Node2D" node_paths=PackedStringArray("shop_interactor")]
+script = ExtResource("1_5b52h")
+shop_interactor = NodePath("ShopInteractionComponent")
+
+[node name="ShopInteractionComponent" parent="." instance=ExtResource("2_2xqv8")]

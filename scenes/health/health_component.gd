@@ -31,7 +31,7 @@ var health_stat:HealthStats
 ## How much hp should the character have
 @onready var current_health: float = max_health:
 	set(new_health):
-		print(new_health)
+		#print(new_health)
 		
 		var previous_health:float = current_health
 		

@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://tvo44qb5wst6"]
+
+[ext_resource type="PackedScene" uid="uid://djit2reftslcm" path="res://scenes/items/buff_item.tscn" id="1_3kxvt"]
+[ext_resource type="Texture2D" uid="uid://dak4u7uc11ice" path="res://sprites/PixelFood/Split/Apple.png" id="2_s0ia6"]
+[ext_resource type="PackedScene" uid="uid://bly6855hdhqjx" path="res://scenes/components/shop/shop_component.tscn" id="3_ueepp"]
+[ext_resource type="PackedScene" uid="uid://bcnd2da5iv54g" path="res://scenes/components/stats/stat_component.tscn" id="4_rp127"]
+
+[node name="Apple" node_paths=PackedStringArray("shop_component", "stats") instance=ExtResource("1_3kxvt")]
+shop_component = NodePath("ShopComponent")
+stats = NodePath("StatComponent")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_s0ia6")
+
+[node name="ShopComponent" parent="." index="2" instance=ExtResource("3_ueepp")]
+position = Vector2(0, 7.14286)
+value = 10.0
+
+[node name="StatComponent" parent="." index="3" instance=ExtResource("4_rp127")]
+stat_type = 1
+multiplier = 1.0
+added = 1.0
