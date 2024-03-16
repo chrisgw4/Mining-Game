@@ -31,7 +31,7 @@ func _get_transition() -> int:
 		return states["walk"]
 	else:
 		return states["idle"]
-
+	
 	return -1
 
 

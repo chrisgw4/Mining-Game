@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://bx28rodl8detu"]
+
+[ext_resource type="PackedScene" uid="uid://djit2reftslcm" path="res://scenes/items/buff_item.tscn" id="1_wqy0e"]
+[ext_resource type="PackedScene" uid="uid://bly6855hdhqjx" path="res://scenes/components/shop/shop_component.tscn" id="2_fp6d6"]
+[ext_resource type="Texture2D" uid="uid://d1mki5mgqhxn3" path="res://sprites/PixelFood/Split/Sardines.png" id="2_s27l3"]
+[ext_resource type="PackedScene" uid="uid://bcnd2da5iv54g" path="res://scenes/components/stats/stat_component.tscn" id="3_7t0kp"]
+
+[node name="Sardines" node_paths=PackedStringArray("shop_component", "stats") instance=ExtResource("1_wqy0e")]
+shop_component = NodePath("ShopComponent")
+stats = NodePath("StatComponent")
+item_name = "Sardines"
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_s27l3")
+offset = Vector2(-1.5, 0)
+
+[node name="ShopComponent" parent="." index="2" instance=ExtResource("2_fp6d6")]
+position = Vector2(0, 7.14286)
+value = 25.0
+
+[node name="StatComponent" parent="." index="3" instance=ExtResource("3_7t0kp")]
+stat_type = 4
+multiplier = 0.025

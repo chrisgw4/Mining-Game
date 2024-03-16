@@ -8,8 +8,10 @@
 [node name="Apple" node_paths=PackedStringArray("shop_component", "stats") instance=ExtResource("1_3kxvt")]
 shop_component = NodePath("ShopComponent")
 stats = NodePath("StatComponent")
+item_name = "Apple"
 
 [node name="Sprite2D" parent="." index="0"]
+position = Vector2(-0.5, 0)
 texture = ExtResource("2_s0ia6")
 
 [node name="ShopComponent" parent="." index="2" instance=ExtResource("3_ueepp")]
@@ -18,5 +20,4 @@ value = 10.0
 
 [node name="StatComponent" parent="." index="3" instance=ExtResource("4_rp127")]
 stat_type = 1
-multiplier = 1.0
 added = 1.0

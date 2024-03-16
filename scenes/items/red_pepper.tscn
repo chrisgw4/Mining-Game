@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cbfe2vte7ud2j"]
+
+[ext_resource type="PackedScene" uid="uid://djit2reftslcm" path="res://scenes/items/buff_item.tscn" id="1_aojrr"]
+[ext_resource type="Texture2D" uid="uid://c7a5acfh1duq4" path="res://sprites/PixelFood/Split/PepperRed.png" id="2_87a0j"]
+[ext_resource type="PackedScene" uid="uid://bly6855hdhqjx" path="res://scenes/components/shop/shop_component.tscn" id="3_rp0hk"]
+[ext_resource type="PackedScene" uid="uid://b1uigraa7t06e" path="res://scenes/components/debuffs/debuff.tscn" id="4_g5bno"]
+
+[node name="Red Pepper" node_paths=PackedStringArray("shop_component", "debuffs") instance=ExtResource("1_aojrr")]
+shop_component = NodePath("ShopComponent")
+debuffs = NodePath("Debuff")
+item_name = "Red Pepper"
+description = "Gives Chance to light rocks on fire."
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_87a0j")
+offset = Vector2(3, 0)
+
+[node name="ShopComponent" parent="." index="2" instance=ExtResource("3_rp0hk")]
+position = Vector2(0, 7.14286)
+value = 30.0
+rarity = 1
+
+[node name="Debuff" parent="." index="3" instance=ExtResource("4_g5bno")]
+debuff_type = 1
+damage = 1.0
+chance = 0.05

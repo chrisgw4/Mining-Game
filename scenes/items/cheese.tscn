@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://bjg88pgmvq7g0"]
+
+[ext_resource type="PackedScene" uid="uid://djit2reftslcm" path="res://scenes/items/buff_item.tscn" id="1_0tfhd"]
+[ext_resource type="Texture2D" uid="uid://bmqo6wutwtmys" path="res://sprites/PixelFood/Split/Cheese.png" id="2_hn2y6"]
+[ext_resource type="PackedScene" uid="uid://bly6855hdhqjx" path="res://scenes/components/shop/shop_component.tscn" id="2_hrnvl"]
+[ext_resource type="PackedScene" uid="uid://bcnd2da5iv54g" path="res://scenes/components/stats/stat_component.tscn" id="3_qmuf2"]
+
+[node name="Cheese" node_paths=PackedStringArray("shop_component", "stats") instance=ExtResource("1_0tfhd")]
+shop_component = NodePath("ShopComponent")
+stats = NodePath("StatComponent")
+item_name = "Cheese"
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_hn2y6")
+
+[node name="ShopComponent" parent="." index="2" instance=ExtResource("2_hrnvl")]
+position = Vector2(0, 7.14286)
+value = 20.0
+
+[node name="StatComponent" parent="." index="3" instance=ExtResource("3_qmuf2")]
+stat_type = 3
+multiplier = 0.075

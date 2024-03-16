@@ -161,7 +161,7 @@ player = NodePath("../SceneHolder1/Player")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="UI"]
 offset_right = 385.0
-offset_bottom = 154.0
+offset_bottom = 86.0
 theme_override_font_sizes/normal_font_size = 12
 text = "Joe"
 

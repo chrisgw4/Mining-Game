@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://biy8tq1rcsman"]
+
+[ext_resource type="PackedScene" uid="uid://djit2reftslcm" path="res://scenes/items/buff_item.tscn" id="1_gjyep"]
+[ext_resource type="Texture2D" uid="uid://buvqsrr0ctald" path="res://sprites/PixelFood/Split/Onion.png" id="2_hwpbs"]
+[ext_resource type="PackedScene" uid="uid://bly6855hdhqjx" path="res://scenes/components/shop/shop_component.tscn" id="3_evqni"]
+[ext_resource type="PackedScene" uid="uid://bcnd2da5iv54g" path="res://scenes/components/stats/stat_component.tscn" id="4_4ijlq"]
+
+[node name="Onion" node_paths=PackedStringArray("shop_component", "stats") instance=ExtResource("1_gjyep")]
+shop_component = NodePath("ShopComponent")
+stats = NodePath("StatComponent")
+item_name = "Onion"
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_hwpbs")
+
+[node name="ShopComponent" parent="." index="2" instance=ExtResource("3_evqni")]
+value = 25.0
+rarity = 1
+
+[node name="StatComponent" parent="." index="3" instance=ExtResource("4_4ijlq")]
+stat_type = 5
+multiplier = 0.02

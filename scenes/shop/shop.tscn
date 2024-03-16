@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c5idnkjj1063p"]
+[gd_scene load_steps=16 format=3 uid="uid://c5idnkjj1063p"]
 
 [ext_resource type="TileSet" uid="uid://dtrkec3usiu31" path="res://scenes/tiles.tres" id="1_88any"]
 [ext_resource type="Script" path="res://scenes/shop/shop.gd" id="1_o6kcv"]
@@ -8,9 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://ljp6lj5kbswp" path="res://sprites/Crab Enemy Camacebra Games/Idle/Crab3.png" id="5_i6l0c"]
 [ext_resource type="Texture2D" uid="uid://c3p2j3j4hsr57" path="res://sprites/Crab Enemy Camacebra Games/Idle/Crab4.png" id="6_e0buw"]
 [ext_resource type="Texture2D" uid="uid://cv4cqmxxc5xra" path="res://sprites/Crab Enemy Camacebra Games/Idle/Crab5.png" id="7_awm4u"]
-[ext_resource type="PackedScene" uid="uid://tvo44qb5wst6" path="res://scenes/items/apple.tscn" id="10_0sv6w"]
+[ext_resource type="PackedScene" uid="uid://bbtgciolax7xq" path="res://scenes/components/shop/shop_interaction_component.tscn" id="12_o2ylg"]
+[ext_resource type="PackedScene" uid="uid://d15n4r0kyygb6" path="res://scenes/shop/shop_pedestal.tscn" id="13_n5e73"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v3qie"]
+size = Vector2(21, 20)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qwjie"]
 animations = [{
@@ -125,7 +127,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(7, 95)
+position = Vector2(8, 90)
 shape = SubResource("RectangleShape2D_v3qie")
 
 [node name="SpawnPos" type="Node2D" parent="."]
@@ -142,22 +144,22 @@ libraries = {
 "": SubResource("AnimationLibrary_1b8g4")
 }
 
-[node name="Pedestal 1" type="Node2D" parent="."]
+[node name="ShopInteractionComponent" parent="." instance=ExtResource("12_o2ylg")]
+position = Vector2(-108, 19)
+
+[node name="ShopPedestal1" parent="." instance=ExtResource("13_n5e73")]
 position = Vector2(-88, -73)
 
-[node name="Apple" parent="Pedestal 1" instance=ExtResource("10_0sv6w")]
-position = Vector2(-0.5, -7)
+[node name="ShopPedestal2" parent="." instance=ExtResource("13_n5e73")]
+position = Vector2(-40, -73)
 
-[node name="Pedestal 2" type="Node2D" parent="."]
-position = Vector2(-40, -74)
+[node name="ShopPedestal3" parent="." instance=ExtResource("13_n5e73")]
+position = Vector2(8, -73)
 
-[node name="Pedestal 3" type="Node2D" parent="."]
-position = Vector2(8, -74)
+[node name="ShopPedestal4" parent="." instance=ExtResource("13_n5e73")]
+position = Vector2(56, -73)
 
-[node name="Pedestal 4" type="Node2D" parent="."]
-position = Vector2(56, -74)
-
-[node name="Pedestal 5" type="Node2D" parent="."]
-position = Vector2(104, -74)
+[node name="ShopPedestal5" parent="." instance=ExtResource("13_n5e73")]
+position = Vector2(104, -73)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

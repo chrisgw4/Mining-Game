@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://b70cqs0m10ra5"]
+
+[ext_resource type="PackedScene" uid="uid://djit2reftslcm" path="res://scenes/items/buff_item.tscn" id="1_hri6r"]
+[ext_resource type="Texture2D" uid="uid://b86ou0e3whn5x" path="res://sprites/PixelFood/Split/Moonshine.png" id="2_f0r4j"]
+[ext_resource type="PackedScene" uid="uid://e4wa2t15uf0l" path="res://scenes/components/effects/effect_component.tscn" id="3_i6dpj"]
+[ext_resource type="PackedScene" uid="uid://bly6855hdhqjx" path="res://scenes/components/shop/shop_component.tscn" id="4_2fo37"]
+[ext_resource type="PackedScene" uid="uid://dxxijroemo07j" path="res://scenes/explosion/explosion.tscn" id="4_u40l4"]
+
+[node name="Moonshine" node_paths=PackedStringArray("shop_component", "effects") instance=ExtResource("1_hri6r")]
+shop_component = NodePath("ShopComponent")
+effects = NodePath("EffectComponent")
+item_name = "Moonshine"
+description = "Chance to explode rocks. Even these explosions cause explosions."
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_f0r4j")
+offset = Vector2(0.5, 0)
+
+[node name="EffectComponent" parent="." index="2" instance=ExtResource("3_i6dpj")]
+effect_type = 1
+chance = 0.025
+damage = 4.0
+effect_scene = ExtResource("4_u40l4")
+proc_itself_chance = 1.0
+
+[node name="ShopComponent" parent="." index="3" instance=ExtResource("4_2fo37")]
+position = Vector2(0, 8.57143)
+value = 55.0
+rarity = 2

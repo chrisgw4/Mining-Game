@@ -5,9 +5,12 @@ class_name ShopComponent
 
 @export_enum("Common", "Uncommon", "Rare", "Epic", "Legendary") var rarity:int
 
-@export var description:String
+
 
 @export var shop_interactor:ShopInteractionComponent
+
+# Signal that tells the pedestal that the item was bought
+signal bought
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -20,5 +23,6 @@ func _attempt_to_buy(body:Player) -> void:
 	if body.gold >= value:
 		body.gold -= value
 		body.pick_up_item(get_parent())
+		emit_signal("bought")
 	
 	

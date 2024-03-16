@@ -11,7 +11,6 @@ signal health_changed(health_stat:HealthStats)
 var has_health_remaining:bool = true#!(current_health != 0)
 
 
-
 ## How much hp should the character have as a maximum
 @export var max_health: float = 2:
 	set(value):
@@ -43,7 +42,8 @@ var health_stat:HealthStats
 		has_health_remaining = (current_health != 0)
 		
 		health_stat = HealthStats.new(previous_health, current_health, max_health, current_health_percent, (previous_health > current_health))
-		
+		#print("Current: " + str(current_health))
+		#print("Max: " + str(max_health))
 		
 		emit_signal("health_changed", health_stat)
 		
@@ -60,7 +60,8 @@ var health_stat:HealthStats
 		
 
 func damage(damage:float, force_hide_damage:bool = false) -> void:
-	current_health -= damage
+	#print(get_parent().debuff_component.compute_damage_multiplier())
+	current_health -= damage * get_parent().debuff_component.compute_damage_multiplier()
 
 
 func chip_damage(damage:float,):
@@ -68,8 +69,8 @@ func chip_damage(damage:float,):
 	damage(damage, false)
 	set_block_signals(false) # allow the set_health fun to be able to emit signals again
 	emit_signal("health_changed", health_stat) # emit the health changed signal because it was blocked
-
-
+	
+	
 	if (current_health == 0):
 		has_died = true
 		emit_signal("died_event")
