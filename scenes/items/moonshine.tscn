@@ -21,7 +21,8 @@ effect_type = 1
 chance = 0.025
 damage = 4.0
 effect_scene = ExtResource("4_u40l4")
-proc_itself_chance = 1.0
+proc_itself_chance = 0.01
+max_proc_chance = 0.2
 
 [node name="ShopComponent" parent="." index="3" instance=ExtResource("4_2fo37")]
 position = Vector2(0, 8.57143)

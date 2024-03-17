@@ -5,10 +5,11 @@
 [ext_resource type="Texture2D" uid="uid://d1mki5mgqhxn3" path="res://sprites/PixelFood/Split/Sardines.png" id="2_s27l3"]
 [ext_resource type="PackedScene" uid="uid://bcnd2da5iv54g" path="res://scenes/components/stats/stat_component.tscn" id="3_7t0kp"]
 
-[node name="Sardines" node_paths=PackedStringArray("shop_component", "stats") instance=ExtResource("1_wqy0e")]
+[node name="Sardines" node_paths=PackedStringArray("shop_component", "stats_array") instance=ExtResource("1_wqy0e")]
 shop_component = NodePath("ShopComponent")
-stats = NodePath("StatComponent")
+stats_array = [NodePath("StatComponent"), NodePath("StatComponent2")]
 item_name = "Sardines"
+description = "Increases Radius Size. Genetically modified to help you bulk."
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_s27l3")
@@ -20,4 +21,8 @@ value = 25.0
 
 [node name="StatComponent" parent="." index="3" instance=ExtResource("3_7t0kp")]
 stat_type = 4
-multiplier = 0.025
+multiplier = 0.075
+
+[node name="StatComponent2" parent="." index="4" instance=ExtResource("3_7t0kp")]
+stat_type = 2
+multiplier = -0.0075

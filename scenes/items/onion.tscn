@@ -5,15 +5,17 @@
 [ext_resource type="PackedScene" uid="uid://bly6855hdhqjx" path="res://scenes/components/shop/shop_component.tscn" id="3_evqni"]
 [ext_resource type="PackedScene" uid="uid://bcnd2da5iv54g" path="res://scenes/components/stats/stat_component.tscn" id="4_4ijlq"]
 
-[node name="Onion" node_paths=PackedStringArray("shop_component", "stats") instance=ExtResource("1_gjyep")]
+[node name="Onion" node_paths=PackedStringArray("shop_component", "stats_array") instance=ExtResource("1_gjyep")]
 shop_component = NodePath("ShopComponent")
-stats = NodePath("StatComponent")
+stats_array = [NodePath("StatComponent")]
 item_name = "Onion"
+description = "Increases Crit Chance by 2%"
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_hwpbs")
 
 [node name="ShopComponent" parent="." index="2" instance=ExtResource("3_evqni")]
+position = Vector2(0, 10)
 value = 25.0
 rarity = 1
 

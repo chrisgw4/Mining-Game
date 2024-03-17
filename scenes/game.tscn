@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cpvi5qbkfy5ys"]
+[gd_scene load_steps=24 format=3 uid="uid://cpvi5qbkfy5ys"]
 
 [ext_resource type="PackedScene" uid="uid://dcl1kxbdmgai7" path="res://scenes/player/player.tscn" id="1_7lba3"]
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_soq34"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://d86ape2xfk7q" path="res://scenes/hitbox/hitbox.tscn" id="2_2mf6j"]
 [ext_resource type="Texture2D" uid="uid://b2fqbqxvrnxqj" path="res://sprites/coin4_16x16.png" id="3_ndvo6"]
 [ext_resource type="TileSet" uid="uid://dtrkec3usiu31" path="res://scenes/tiles.tres" id="3_qommg"]
+[ext_resource type="PackedScene" uid="uid://tr7fdlegrpye" path="res://scenes/UI/inventroy.tscn" id="4_s43xf"]
+[ext_resource type="PackedScene" uid="uid://ckr4bld31cu1n" path="res://scenes/UI/global_stats_ui.tscn" id="5_j32l6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1fvqa"]
 atlas = ExtResource("3_ndvo6")
@@ -164,6 +166,7 @@ offset_right = 385.0
 offset_bottom = 154.0
 theme_override_font_sizes/normal_font_size = 12
 text = "Joe"
+metadata/_edit_use_anchors_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="UI"]
 texture_filter = 1
@@ -174,6 +177,16 @@ sprite_frames = SubResource("SpriteFrames_7grxb")
 libraries = {
 "": SubResource("AnimationLibrary_lmkhy")
 }
+
+[node name="Inventroy" parent="UI" instance=ExtResource("4_s43xf")]
+visible = false
+
+[node name="GlobalStatsUI" parent="UI" instance=ExtResource("5_j32l6")]
+visible = false
+offset_left = 533.0
+offset_top = 152.0
+offset_right = -10.0
+offset_bottom = -16.0
 
 [node name="SpawnPos" type="Node2D" parent="."]
 position = Vector2(-9, 32)

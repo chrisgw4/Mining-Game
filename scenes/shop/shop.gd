@@ -14,6 +14,8 @@ func _ready():
 	$AnimationPlayer.play("crab")
 	$ShopInteractionComponent.connect("interacted", _refresh_shop)
 	
+	ShopPedestal.reset_item_availability()
+	
 	#connect("refresh_shop", $ShopPedestal1.pick_item)
 	#connect("refresh_shop", $ShopPedestal2.pick_item)
 	#connect("refresh_shop", $ShopPedestal3.pick_item)

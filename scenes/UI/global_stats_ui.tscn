@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckr4bld31cu1n"]
+
+[ext_resource type="PackedScene" uid="uid://bhedk8qasgk7j" path="res://scenes/UI/global_stat_text_box.tscn" id="1_bnqef"]
+[ext_resource type="Script" path="res://scenes/UI/global_stats_ui.gd" id="1_qy7yl"]
+
+[node name="GlobalStatsUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qy7yl")
+
+[node name="VFlowContainer" type="VFlowContainer" parent="."]
+layout_mode = 0
+offset_right = 92.0
+offset_bottom = 188.0
+theme_override_constants/v_separation = 1
+
+[node name="WeaponDamage" parent="VFlowContainer" instance=ExtResource("1_bnqef")]
+layout_mode = 2
+text = "Weapon Damage: "
+
+[node name="GlobalDamage" parent="VFlowContainer" instance=ExtResource("1_bnqef")]
+layout_mode = 2
+text = "Global Damage: "
+
+[node name="AttackSpeed" parent="VFlowContainer" instance=ExtResource("1_bnqef")]
+layout_mode = 2
+text = "Attack Speed: "
+
+[node name="CritChance" parent="VFlowContainer" instance=ExtResource("1_bnqef")]
+layout_mode = 2
+text = "Critical Chance: "
+
+[node name="RadiusMultiplier" parent="VFlowContainer" instance=ExtResource("1_bnqef")]
+layout_mode = 2
+text = "Radius Size: "
+
+[node name="GoldMultiplier" parent="VFlowContainer" instance=ExtResource("1_bnqef")]
+layout_mode = 2
+text = "Gold Multiplier: "
+
+[node name="MovementSpeed" parent="VFlowContainer" instance=ExtResource("1_bnqef")]
+layout_mode = 2
+text = "Movement Speed: "

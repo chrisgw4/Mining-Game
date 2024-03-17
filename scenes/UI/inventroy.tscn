@@ -1,0 +1,74 @@
+[gd_scene load_steps=3 format=3 uid="uid://tr7fdlegrpye"]
+
+[ext_resource type="Script" path="res://scenes/UI/inventroy.gd" id="1_xplxf"]
+[ext_resource type="PackedScene" uid="uid://pedjnuakvjex" path="res://scenes/UI/item_slot.tscn" id="2_u32oo"]
+
+[node name="Inventroy" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xplxf")
+
+[node name="FlowContainer" type="FlowContainer" parent="."]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -140.0
+offset_top = 11.0
+offset_right = 523.0
+offset_bottom = 111.0
+grow_horizontal = 2
+scale = Vector2(0.65, 0.65)
+
+[node name="ItemSlot" parent="FlowContainer" instance=ExtResource("2_u32oo")]
+layout_mode = 2
+
+[node name="ItemSlot2" parent="FlowContainer" instance=ExtResource("2_u32oo")]
+layout_mode = 2
+
+[node name="ItemSlot3" parent="FlowContainer" instance=ExtResource("2_u32oo")]
+layout_mode = 2
+
+[node name="ItemSlot4" parent="FlowContainer" instance=ExtResource("2_u32oo")]
+layout_mode = 2
+
+[node name="ItemSlot5" parent="FlowContainer" instance=ExtResource("2_u32oo")]
+layout_mode = 2
+
+[node name="ItemSlot6" parent="FlowContainer" instance=ExtResource("2_u32oo")]
+layout_mode = 2
+
+[node name="ItemSlot7" parent="FlowContainer" instance=ExtResource("2_u32oo")]
+layout_mode = 2
+
+[node name="ItemSlot8" parent="FlowContainer" instance=ExtResource("2_u32oo")]
+layout_mode = 2
+
+[node name="ItemSlot9" parent="FlowContainer" instance=ExtResource("2_u32oo")]
+layout_mode = 2
+
+[node name="ItemSlot10" parent="FlowContainer" instance=ExtResource("2_u32oo")]
+layout_mode = 2
+
+[node name="ItemSlot11" parent="FlowContainer" instance=ExtResource("2_u32oo")]
+layout_mode = 2
+
+[node name="ItemSlot12" parent="FlowContainer" instance=ExtResource("2_u32oo")]
+layout_mode = 2
+
+[node name="ItemSlot13" parent="FlowContainer" instance=ExtResource("2_u32oo")]
+layout_mode = 2
+
+[node name="ItemSlot14" parent="FlowContainer" instance=ExtResource("2_u32oo")]
+layout_mode = 2
+
+[node name="ItemSlot15" parent="FlowContainer" instance=ExtResource("2_u32oo")]
+layout_mode = 2
+
+[node name="ItemSlot16" parent="FlowContainer" instance=ExtResource("2_u32oo")]
+layout_mode = 2

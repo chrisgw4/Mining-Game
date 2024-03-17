@@ -5,13 +5,13 @@
 [ext_resource type="PackedScene" uid="uid://bly6855hdhqjx" path="res://scenes/components/shop/shop_component.tscn" id="3_ueepp"]
 [ext_resource type="PackedScene" uid="uid://bcnd2da5iv54g" path="res://scenes/components/stats/stat_component.tscn" id="4_rp127"]
 
-[node name="Apple" node_paths=PackedStringArray("shop_component", "stats") instance=ExtResource("1_3kxvt")]
+[node name="Apple" node_paths=PackedStringArray("shop_component", "stats_array") instance=ExtResource("1_3kxvt")]
 shop_component = NodePath("ShopComponent")
-stats = NodePath("StatComponent")
+stats_array = [NodePath("StatComponent")]
 item_name = "Apple"
+description = "Increases Damage by 1. An apple a day keeps the rocks away."
 
 [node name="Sprite2D" parent="." index="0"]
-position = Vector2(-0.5, 0)
 texture = ExtResource("2_s0ia6")
 
 [node name="ShopComponent" parent="." index="2" instance=ExtResource("3_ueepp")]

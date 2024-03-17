@@ -5,17 +5,17 @@
 [ext_resource type="Texture2D" uid="uid://dm4lgd1tbhsbi" path="res://sprites/PixelFood/Split/Cookie.png" id="2_p0mee"]
 [ext_resource type="PackedScene" uid="uid://bcnd2da5iv54g" path="res://scenes/components/stats/stat_component.tscn" id="3_avyne"]
 
-[node name="Cookie" node_paths=PackedStringArray("shop_component", "stats") instance=ExtResource("1_spap1")]
+[node name="Cookie" node_paths=PackedStringArray("shop_component", "stats_array") instance=ExtResource("1_spap1")]
 shop_component = NodePath("ShopComponent")
-stats = NodePath("StatComponent")
+stats_array = [NodePath("StatComponent")]
 item_name = "Cookie"
+description = "Increases Movement Speed. The sugar rush never ends."
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_p0mee")
 
 [node name="ShopComponent" parent="." index="2" instance=ExtResource("2_ij1pb")]
 position = Vector2(0, 8.57143)
-scale = Vector2(1, 1)
 value = 12.5
 
 [node name="StatComponent" parent="." index="3" instance=ExtResource("3_avyne")]

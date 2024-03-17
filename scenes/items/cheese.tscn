@@ -5,10 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://bly6855hdhqjx" path="res://scenes/components/shop/shop_component.tscn" id="2_hrnvl"]
 [ext_resource type="PackedScene" uid="uid://bcnd2da5iv54g" path="res://scenes/components/stats/stat_component.tscn" id="3_qmuf2"]
 
-[node name="Cheese" node_paths=PackedStringArray("shop_component", "stats") instance=ExtResource("1_0tfhd")]
+[node name="Cheese" node_paths=PackedStringArray("shop_component", "stats_array") instance=ExtResource("1_0tfhd")]
 shop_component = NodePath("ShopComponent")
-stats = NodePath("StatComponent")
+stats_array = [NodePath("StatComponent")]
 item_name = "Cheese"
+description = "Use this cheese to multiply your gold."
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_hn2y6")

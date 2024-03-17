@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://cov337cdwjrbk"]
+
+[ext_resource type="PackedScene" uid="uid://djit2reftslcm" path="res://scenes/items/buff_item.tscn" id="1_8isqc"]
+[ext_resource type="Texture2D" uid="uid://ls80sot4gw4b" path="res://sprites/PixelFood/Split/Steak.png" id="2_2da8b"]
+[ext_resource type="PackedScene" uid="uid://bly6855hdhqjx" path="res://scenes/components/shop/shop_component.tscn" id="3_chwj1"]
+[ext_resource type="PackedScene" uid="uid://bcnd2da5iv54g" path="res://scenes/components/stats/stat_component.tscn" id="4_41wo6"]
+
+[node name="Steak" node_paths=PackedStringArray("shop_component", "stats_array") instance=ExtResource("1_8isqc")]
+shop_component = NodePath("ShopComponent")
+stats_array = [NodePath("StatComponent")]
+item_name = "Steak"
+description = "Increases damage multiplier. Enough protein to grow your muscles tenfold."
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_2da8b")
+
+[node name="ShopComponent" parent="." index="4" instance=ExtResource("3_chwj1")]
+position = Vector2(0, 8.57143)
+value = 30.0
+rarity = 1
+
+[node name="StatComponent" parent="." index="5" instance=ExtResource("4_41wo6")]
+stat_type = 1
+multiplier = 0.05

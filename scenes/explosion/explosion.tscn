@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dxxijroemo07j"]
+[gd_scene load_steps=17 format=3 uid="uid://dxxijroemo07j"]
 
 [ext_resource type="Texture2D" uid="uid://cekwfyu560cjx" path="res://sprites/2D explosions/Type 1/1.png" id="1_me0je"]
 [ext_resource type="Script" path="res://scenes/explosion/explosion.gd" id="1_uwi4x"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cq37jr4r0rxs8" path="res://sprites/2D explosions/Type 1/7.png" id="7_oaa3x"]
 [ext_resource type="Texture2D" uid="uid://cihssu0yx5r5j" path="res://sprites/2D explosions/Type 1/8.png" id="8_vf5vc"]
 [ext_resource type="PackedScene" uid="uid://d86ape2xfk7q" path="res://scenes/hitbox/hitbox.tscn" id="9_bkudk"]
+[ext_resource type="Texture2D" uid="uid://cmn6cdf0ph1ba" path="res://sprites/light.jpg" id="11_cc7xa"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6ek78"]
 animations = [{
@@ -81,6 +82,42 @@ tracks/2/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PointLight2D:energy")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PointLight2D:enabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PointLight2D:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_4ety0"]
 resource_name = "explode"
@@ -136,6 +173,42 @@ tracks/3/keys = {
 "update": 1,
 "values": [true, false, true]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PointLight2D:energy")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.2, 0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PointLight2D:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.45),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("PointLight2D:enabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.45),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4es3s"]
 _data = {
@@ -166,3 +239,11 @@ base_damage = 1.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 shape = SubResource("CircleShape2D_pfg8f")
 disabled = true
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
+texture_filter = 1
+enabled = false
+energy = 0.0
+texture = ExtResource("11_cc7xa")
+texture_scale = 0.25

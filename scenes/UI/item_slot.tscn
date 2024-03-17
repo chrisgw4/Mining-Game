@@ -1,0 +1,200 @@
+[gd_scene load_steps=9 format=3 uid="uid://pedjnuakvjex"]
+
+[ext_resource type="Script" path="res://scenes/UI/ItemSlot.gd" id="1_hepsa"]
+[ext_resource type="Texture2D" uid="uid://qic5mc7mkvlf" path="res://sprites/ItemSlotImage.png" id="1_y6w3c"]
+[ext_resource type="FontFile" uid="uid://ct7o3pwp0sfps" path="res://sprites/minimalpixel.fnt" id="3_ky48t"]
+[ext_resource type="FontFile" uid="uid://ujcguxfdsiiv" path="res://sprites/MinimalPixelFont.ttf" id="3_l5bjg"]
+
+[sub_resource type="Animation" id="Animation_qx1k0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(15, 20)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.25, 0.25)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_r88bu"]
+resource_name = "hide"
+length = 0.15
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(50, 0), Vector2(15, 20)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.25, 0.25)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_ihup6"]
+resource_name = "show"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(15, 20), Vector2(50, 2.08165e-12)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.25, 0.25), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_16ewp"]
+_data = {
+"RESET": SubResource("Animation_qx1k0"),
+"hide": SubResource("Animation_r88bu"),
+"show": SubResource("Animation_ihup6")
+}
+
+[node name="ItemSlot" type="TextureRect"]
+texture_filter = 1
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_y6w3c")
+script = ExtResource("1_hepsa")
+
+[node name="ItemTexture" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 45.0
+offset_bottom = 45.0
+
+[node name="ItemCount" type="RichTextLabel" parent="."]
+layout_mode = 2
+offset_left = 6.0
+offset_top = 33.0
+offset_right = 49.0
+offset_bottom = 49.0
+mouse_filter = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/normal_font = ExtResource("3_ky48t")
+theme_override_font_sizes/normal_font_size = 16
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_16ewp")
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+z_index = 5
+layout_mode = 0
+offset_left = 15.0
+offset_top = 20.0
+offset_right = 122.0
+offset_bottom = 94.0
+scale = Vector2(0.25, 0.25)
+mouse_filter = 2
+color = Color(0, 0, 0, 0.352941)
+
+[node name="ItemText" type="RichTextLabel" parent="ColorRect"]
+layout_mode = 2
+offset_right = 80.0
+offset_bottom = 40.0
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("3_ky48t")
+theme_override_font_sizes/normal_font_size = 20
+text = "Test Name"
+
+[node name="Description" type="RichTextLabel" parent="ColorRect"]
+texture_filter = 1
+layout_mode = 0
+offset_top = 10.0
+offset_right = 107.0
+offset_bottom = 204.0
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("3_l5bjg")
+theme_override_font_sizes/normal_font_size = 18
+text = "Test Description is here"
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

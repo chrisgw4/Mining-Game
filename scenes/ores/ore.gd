@@ -62,6 +62,9 @@ func _shake_ore() -> void:
 	tween.play()
 	#$AnimationPlayer.play("shake")
 
+
+var died:bool = false
+
 func _break_ore() -> void:
 	var temp = particle.instantiate()
 	temp.global_position = global_position
@@ -69,7 +72,9 @@ func _break_ore() -> void:
 	temp.emitting = true
 	queue_free()
 	player.gold += ((value * difficulty_scale) * 0.9) * player.gold_stat_multiplier
-	emit_signal("destroyed")
+	if not died:
+		emit_signal("destroyed")
+	died = true
 
 
 func _change_difficulty(difficulty_scale) -> void:

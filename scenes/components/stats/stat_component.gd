@@ -8,6 +8,10 @@ class_name StatComponent
 @export var added:float
 
 
+var item_name:String
+var description:String
+
+
 # Attack Damage up
 # Larger Radius
 # Explosion

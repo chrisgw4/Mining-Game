@@ -7,6 +7,8 @@ var effects:Dictionary = {}
 # Stores the debuff effects and their enum value
 var debuffs:Dictionary = {}
 
+var attack_speed:float = 1.0
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,13 +17,18 @@ func _ready():
 
 
 func attack() -> void:
-	#$AnimationPlayer.speed_scale = 1
+	
 	$AnimationPlayer.play("swipe")
 
 
 func update_damage(damage:float, damage_multiplier:float) -> void:
 	hitbox.damage = hitbox.base_damage + damage
 	hitbox.damage_multiplier = damage_multiplier
+
+
+func update_attack_speed(new_attack_speed) -> void:
+	attack_speed = new_attack_speed
+	$AnimationPlayer.speed_scale = attack_speed
 
 
 func update_crit_chance(crit_chance:float) -> void:
@@ -35,10 +42,11 @@ func _check_effects(pos:Vector2, area:Area2D) -> void:
 			var temp = effects[effect].effect_scene.instantiate()
 			temp.global_position = pos
 			get_tree().current_scene.call_deferred("add_child", temp)
-			temp.proc_self_chance = effects[effect].proc_itself_chance
-			
+			temp.proc_self_chance = effects[effect].calculate_proc_self_chance()
+			temp.get_node("Hitbox").damage_multiplier = hitbox.damage_multiplier 
 			if area not in temp.areas:
 				temp.areas.append(area)
+	
 	
 	for debuff in debuffs:
 		var rand = randf_range(0, 1)

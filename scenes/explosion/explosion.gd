@@ -30,8 +30,7 @@ func _proc_itself(pos:Vector2, area:Area2D) -> void:
 	
 	areas.append(area)
 	
-	var rand = randi_range(0, 100)
-	print(rand)
+	var rand = randf_range(0, 1)
 	#print("Rand Val: " + str(rand))
 	
 	if rand <= proc_self_chance:

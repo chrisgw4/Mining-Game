@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://mk1w61ufu0bh"]
+[gd_scene load_steps=3 format=3 uid="uid://mk1w61ufu0bh"]
+
+[ext_resource type="Script" path="res://scenes/particle effect/ore_break2.gd" id="1_2ywc0"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hnkbw"]
 particle_flag_disable_z = true
@@ -12,9 +14,12 @@ color = Color(0.823529, 0.823529, 0.823529, 1)
 
 [node name="OreBreak" type="GPUParticles2D"]
 emitting = false
-amount = 64
+amount = 16
 process_material = SubResource("ParticleProcessMaterial_hnkbw")
 lifetime = 4.0
 one_shot = true
 explosiveness = 1.0
 fixed_fps = 120
+script = ExtResource("1_2ywc0")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

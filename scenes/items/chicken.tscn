@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://bx5sw6pfae84m"]
+
+[ext_resource type="PackedScene" uid="uid://djit2reftslcm" path="res://scenes/items/buff_item.tscn" id="1_6tmac"]
+[ext_resource type="Texture2D" uid="uid://qdfoasi82qgd" path="res://sprites/PixelFood/Split/Chicken.png" id="2_4tfpr"]
+[ext_resource type="PackedScene" uid="uid://bcnd2da5iv54g" path="res://scenes/components/stats/stat_component.tscn" id="3_xs6lw"]
+[ext_resource type="PackedScene" uid="uid://bly6855hdhqjx" path="res://scenes/components/shop/shop_component.tscn" id="4_vln2h"]
+
+[node name="Chicken" node_paths=PackedStringArray("shop_component", "stats_array") instance=ExtResource("1_6tmac")]
+shop_component = NodePath("ShopComponent")
+stats_array = [NodePath("StatComponent")]
+item_name = "Chicken"
+description = "Increases attack speed. You inherit the chicken's flapping abilities allowing you to swing faster. LIKE OMG THIS DESCRIPTION IS SO LONG RIGHT??? OH NO IT GOT EVEN LONGER WHOOPS I dont know how to stop this WHy!! I JUST need to test this out and see IF IT WORKS!"
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_4tfpr")
+
+[node name="StatComponent" parent="." index="4" instance=ExtResource("3_xs6lw")]
+stat_type = 2
+multiplier = 0.15
+
+[node name="ShopComponent" parent="." index="5" instance=ExtResource("4_vln2h")]
+position = Vector2(0, 8.57143)
+value = 35.0
+rarity = 1
